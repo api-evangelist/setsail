@@ -29,7 +29,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Sales
@@ -65,8 +65,40 @@ common:
   url: https://www.zoominfo.com/trust-center/your-privacy
 - type: DomainSecurity
   url: security/setsail-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/setsail-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.setsail.co/legal/vulnerability-reporting-policy
+- type: Conformance
+  url: conformance/setsail-conformance.yml
+- type: Compliance
+  url: https://www.setsail.co/faq/is-setsail-secure
+- type: LLMsTxt
+  url: llms/setsail-llms.txt
+- type: Plans
+  url: plans/setsail-plans-pricing.yml
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-13'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 6
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    SetSail ships only an end-user product — the sole SetSail-served HTTP API is the
+    private backend of its own customer app at https://app.setsail.co/api/, which
+    answers {"error":"Authentication Error"} with HTTP 401 on every path including
+    /api/openapi.json, and none of the 365 URLs in the sitemap or the 104 public
+    FAQ/knowledge-base pages is a developer portal, API reference or spec (they
+    describe only the CRM, email and calendar APIs SetSail consumes).
+  evidence:
+  - url: https://app.setsail.co/api/openapi.json
+    status: 401
+  - url: https://www.setsail.co/openapi.json
+    status: 404
+  - url: https://www.setsail.co/developers
+    status: 404
+  - url: https://www.setsail.co/.well-known/agent-card.json
+    status: 404
+  checked: '2026-08-13'
