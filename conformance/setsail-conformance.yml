@@ -1,0 +1,64 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.setsail.co/faq/is-setsail-secure
+docs:
+- https://www.setsail.co/faq/is-setsail-secure
+- https://www.setsail.co/legal/dpa
+- https://www.setsail.co/legal/setsail-subprocessors
+scope: >-
+  SetSail publishes no machine-readable API contract, so nothing here is derived
+  from OpenAPI. Every entry below is a compliance/security claim SetSail makes on
+  its own public pages (FAQ + Data Processing Agreement).
+standards:
+- id: soc2-type2
+  conforms: true
+  evidence: >-
+    "we have SOC 2 Type 2 certification and conduct regular third-party
+    penetration testing" — https://www.setsail.co/faq/is-setsail-secure; the DPA
+    repeats "SetSail does regular in-house security audits and is SOC2 Type 2
+    certified".
+  source: https://www.setsail.co/faq/is-setsail-secure
+- id: gdpr
+  conforms: true
+  evidence: >-
+    Data Processing Agreement names the EU GDPR (Regulation (EU) 2016/679), UK
+    GDPR and the Swiss Federal Act on Data Protection as applicable data
+    protection laws, with a published subprocessor list.
+  source: https://www.setsail.co/legal/dpa
+- id: ccpa
+  conforms: true
+  evidence: >-
+    Data Processing Agreement names the California Consumer Privacy Act as
+    applicable law; site footer carries a "Do not Sell or Share My Personal
+    Information" control.
+  source: https://www.setsail.co/legal/dpa
+- id: iso-27001
+  conforms: false
+  evidence: No ISO 27001 certification claim found on any public SetSail page.
+- id: hipaa
+  conforms: false
+  evidence: No HIPAA claim found; SetSail is a sales/revenue-operations platform.
+- id: pci-dss
+  conforms: false
+  evidence: No PCI DSS claim found; SetSail does not process card payments.
+- id: fedramp
+  conforms: false
+  evidence: No FedRAMP claim found.
+- id: oauth2
+  conforms: unknown
+  evidence: >-
+    No public API and no published securitySchemes; SetSail consumes OAuth against
+    customer CRM/email/calendar systems but publishes no authorization surface of
+    its own.
+security_practices:
+  encryption_at_rest: AES-256, per-customer master key, AWS S3 server-side + client-side encryption
+  encryption_in_transit: TLS 1.2
+  network_isolation: dedicated virtual private cloud with network access control
+  penetration_testing: regular third-party penetration testing (cadence not published)
+  source: https://www.setsail.co/faq/how-does-setsail-protect-our-data
+notes:
+- >-
+  The SafeBase trust portal at https://security.setsail.co/ (reached via a 301
+  from https://www.setsail.co/security) returns HTTP 404, so the certification
+  artifacts themselves are not downloadable; the SOC 2 Type 2 claim is text on
+  the FAQ and DPA pages only.

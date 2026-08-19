@@ -1,0 +1,21 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.setsail.co/
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  Not applicable and undocumented. SetSail publishes no public API, so there is no
+  rate-limit contract to record: no developer portal, no API reference, no spec, and
+  no rate-limit headers documented anywhere on the public surface. The only
+  SetSail-served HTTP API is the private backend of the customer application at
+  https://app.setsail.co/api/, which returns HTTP 401 with
+  {"error":"Authentication Error"} on every path probed anonymously, so no live
+  RateLimit-*/X-RateLimit-*/Retry-After response headers could be observed either.
+evidence:
+- url: https://app.setsail.co/api/config
+  status: 401
+- url: https://www.setsail.co/developers
+  status: 404
+- url: https://www.setsail.co/api
+  status: 404

@@ -1,0 +1,122 @@
+generated: '2026-08-13'
+method: probed
+source: live GET probes of every SetSail host known to this profile
+result: no-documents
+summary: >-
+  No /.well-known/ document is served by SetSail. www.setsail.co answers every
+  /.well-known/* path with HTTP 404 and an "Invalid .well-known request" HTML
+  body. app.setsail.co is a single-page application whose catch-all returns HTTP
+  200 with the same 1,651-byte HTML shell for EVERY path probed — including
+  /openapi.json and /.well-known/agent-card.json — so none of its 200s is a
+  document. No WellKnown, SecurityTxt or AgentCard pointer was emitted.
+hosts:
+- host: https://www.setsail.co
+  role: website
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://app.setsail.co
+  role: customer application (SPA)
+  note: >-
+    SPA catch-all — every path returns 200 text/html with the same app shell.
+    Treated as a miss on all paths, not as a hit.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    document: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    document: false
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery run against every SetSail host. No OpenAPI,
+    Swagger, GraphQL SDL, MCP endpoint or A2A agent card exists at any
+    anonymously reachable path.
+  probes:
+  - url: https://www.setsail.co/openapi.json
+    status: 404
+  - url: https://www.setsail.co/openapi.yaml
+    status: 404
+  - url: https://www.setsail.co/swagger.json
+    status: 404
+  - url: https://www.setsail.co/v1/openapi.json
+    status: 404
+  - url: https://www.setsail.co/api-docs
+    status: 404
+  - url: https://www.setsail.co/docs
+    status: 404
+  - url: https://www.setsail.co/redoc
+    status: 404
+  - url: https://www.setsail.co/graphql
+    status: 404
+  - url: https://www.setsail.co/llms.txt
+    status: 404
+  - url: https://www.setsail.co/api
+    status: 404
+  - url: https://www.setsail.co/developers
+    status: 404
+  - url: https://api.setsail.co/
+    status: 0
+    note: DNS does not resolve
+  - url: https://docs.setsail.co/
+    status: 0
+    note: DNS does not resolve
+  - url: https://developer.setsail.co/
+    status: 0
+    note: DNS does not resolve
+  - url: https://status.setsail.co/
+    status: 0
+    note: DNS does not resolve
+  - url: https://trust.setsail.co/
+    status: 0
+    note: DNS does not resolve
+  - url: https://app.setsail.co/api/config
+    status: 401
+    note: >-
+      Private application API. The SPA bundle at app.setsail.co calls
+      same-origin /api/config, /api/features, /api/locales, /api/users/me,
+      /api/users/me/latest_sfdc_write and /api/slack_users/associate. Every one
+      returns {"error":"Authentication Error"} anonymously; there is no
+      documentation, no spec and no developer program for it.
+  - url: https://app.setsail.co/api/openapi.json
+    status: 401
+  - url: https://app.setsail.co/api/swagger.json
+    status: 401
+  - url: https://app.setsail.co/api/v1/openapi.json
+    status: 401
+  - url: https://app.setsail.co/api/docs
+    status: 401

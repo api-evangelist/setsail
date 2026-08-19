@@ -1,0 +1,24 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.setsail.co/
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+note: >-
+  SetSail publishes no pricing page and no plan tiers. https://www.setsail.co/pricing
+  returns HTTP 404 and the 365-URL sitemap at https://www.setsail.co/sitemap.xml
+  contains no pricing, plans or packaging page — the site's only commercial call to
+  action is "Contact us" / "Schedule a demo". A FAQ entry titled "What is the pricing
+  model for your software and are there any hidden fees" exists at
+  https://www.setsail.co/faq/what-is-the-pricing-model-for-your-software-and-are-there-any-hidden-fees
+  but names no prices, currencies, quotas or overage terms. Since the ZoomInfo
+  acquisition the commercial motion runs through ZoomInfo sales.
+evidence:
+- url: https://www.setsail.co/pricing
+  status: 404
+- url: https://www.setsail.co/sitemap.xml
+  status: 200
+  note: 365 URLs, no pricing/plans page
+- url: https://www.setsail.co/faq/what-is-the-pricing-model-for-your-software-and-are-there-any-hidden-fees
+  status: 200
+  note: qualitative answer only, no published tiers or prices
