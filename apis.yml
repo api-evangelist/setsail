@@ -67,6 +67,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/setsail-rate-limits.yml
 - type: Website
   url: https://www.setsail.co/
 - type: Blog
