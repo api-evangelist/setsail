@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/setsail/integrations
+- https://n8n.io/integrations/setsail/
+- https://composio.dev/toolkits/setsail
+- https://monid.ai/tools/setsail
+checked:
+- https://composio.dev/toolkits/setsail
+- https://monid.ai/tools/setsail
+- https://n8n.io/integrations/setsail/
+- https://zapier.com/apps/setsail/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
